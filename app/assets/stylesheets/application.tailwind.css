@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply h-full font-mono;
+  }
+  main {
+    @apply prose lg:prose-lg min-h-full mx-auto border-x border-dashed p-8;
+  }
+  form {
+    @apply flex flex-col justify-start gap-4;
+  }
+  label:has(input, select, textarea) {
+    @apply flex flex-col gap-1;
+  }
+  fieldset label:has(input[type="checkbox"], input[type="radio"]) {
+    @apply flex flex-row items-center gap-2;
+  }
+  [type="submit"],
+  [type="button"],
+  [type="file"]::-webkit-file-upload-button,
+  [type="file"]::file-selector-button,
+  button {
+    @apply cursor-pointer bg-gray-200 px-2 py-1;
+  }
+  [type="submit"]:hover,
+  [type="button"]:hover,
+  button:hover {
+    @apply bg-gray-300;
+  }
+  [type="reset"] {
+    @apply cursor-pointer border border-gray-200 px-2 py-1;
+  }
+  [type="file"] {
+    @apply border;
+  }
+  [type="file"]::-webkit-file-upload-button,
+  [type="file"]::file-selector-button {
+    @apply border-transparent;
+  }
+}
