@@ -1,8 +1,8 @@
-<hgroup class="flex items-baseline justify-between">
+<hgroup class="flex items-start justify-between">
   <h1>Recent posts</h1>
 
   <% if user_signed_in? %>
-    <%= link_to "New post", new_post_path %>
+    <%= link_to "New post", new_post_path, class: "button" %>
   <% end %>
 </hgroup>
 

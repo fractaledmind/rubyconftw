@@ -10,7 +10,7 @@
   main {
     @apply prose lg:prose-lg mx-auto max-w-4xl border p-8 shadow-md;
   }
-  a[href] {
+  :where(a[href]) {
     @apply font-medium text-[--tw-prose-links] underline;
   }
   form:not(.button_to) {
@@ -32,12 +32,14 @@
   form:not(.button_to) [type="button"],
   form:not(.button_to) [type="file"]::-webkit-file-upload-button,
   form:not(.button_to) [type="file"]::file-selector-button,
-  form:not(.button_to) button {
-    @apply cursor-pointer bg-gray-200 px-2 py-1;
+  form:not(.button_to) button,
+  .button {
+    @apply cursor-pointer bg-gray-200 px-2 py-1 font-normal no-underline;
   }
   [type="submit"]:hover,
   [type="button"]:hover,
-  button:hover {
+  button:hover,
+  .button:hover {
     @apply bg-gray-300;
   }
   [type="reset"] {

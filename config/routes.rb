@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[ show new create ]
   get '/sign_in', to: 'sessions#new', as: :sign_in
   get '/sign_up', to: 'users#new', as: :sign_up
-  resources :posts, only: %i[ index show ]
 
   constraints(AuthenticatedConstraint.new) do
     resource :user, only: %i[ edit update destroy ]
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
       resources :comments, only: %i[ new create edit update destroy ], shallow: true
     end
   end
+
+  resources :posts, only: %i[ index show ]
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

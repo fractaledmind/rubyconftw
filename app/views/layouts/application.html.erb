@@ -18,20 +18,22 @@
     <% end %>
 
     <header class="text-lg max-w-4xl mx-auto p-8 flex justify-between items-center">
-      <h2><%= link_to "Lorem News", root_path %><h2>
+      <h2><%= link_to "Lorem News", root_path %></h2>
 
-      <% if Current.user %>
-        <span class="inline-flex items-center">
-          <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-green-400" fill="currentColor" viewBox="0 0 8 8">
-            <circle cx="4" cy="4" r="3" />
-          </svg>
-          <span><%= link_to Current.user.screen_name_in_database, Current.user %></span>
-        </span> |
-        <%= button_to "Sign out", Current.session, method: :delete %>
-      <% else %>
-        <%= link_to "Sign in", sign_in_path %> |
-        <%= link_to "Sign up", sign_up_path %>
-      <% end %>
+      <div class="inline-flex items-center gap-2">
+        <% if Current.user %>
+          <span class="inline-flex items-center">
+            <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-green-400" fill="currentColor" viewBox="0 0 8 8">
+              <circle cx="4" cy="4" r="3" />
+            </svg>
+            <span><%= link_to Current.user.screen_name_in_database, Current.user %></span>
+          </span> |
+          <%= button_to "Sign out", Current.session, method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", sign_in_path %> |
+          <%= link_to "Sign up", sign_up_path %>
+        <% end %>
+      </div>
     </header>
 
     <main><%= yield %></main>
