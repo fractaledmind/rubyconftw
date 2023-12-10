@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :sessions, only: [:new, :create]
 
   constraints(AuthenticatedConstraint.new) do
     resource :user, only: %i[ show edit new create update destroy ]
     resources :sessions, only: [:index, :new, :destroy]
+
+    resources :posts do
+      resources :comments, shallow: true
+    end
 
     root to: "users#show", as: :user_root
   end
