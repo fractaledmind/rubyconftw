@@ -19,7 +19,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path, notice: "User was successfully created."
+      session = @user.sessions.create!(
+        user_agent: request.user_agent,
+        ip_address: request.ip
+      )
+      Current.session = session
+      cookies.signed.permanent[:session_token] = { value: session.id, httponly: true }
+
+      redirect_to @user, notice: "Profile was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

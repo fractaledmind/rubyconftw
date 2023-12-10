@@ -1,12 +1,23 @@
 <details id="<%= dom_id comment %>" class="px-2" open>
   <summary class="px-1 text-sm">
-    <% if controller_name == "users" %>
-      <span>on <%= link_to comment.post.title, comment.post %></span>
-    <% elsif controller_name == "posts" %>
-      <span>by <%= link_to comment.user.screen_name, comment.user %></span>
-    <% end %>
-    <span>&middot;</span>
-    <%= time_ago_in_words(comment.created_at) %> ago
+    <div class="inline-flex w-11/12 items-baseline justify-between">
+      <span>
+        <% if controller_name == "users" %>
+          <span>on <%= link_to comment.post.title, comment.post %></span>
+        <% elsif controller_name == "posts" %>
+          <span>by <%= link_to comment.user.screen_name, comment.user %></span>
+        <% end %>
+        <span>&middot;</span>
+        <%= time_ago_in_words(comment.created_at) %> ago
+      </span>
+
+      <span>
+        <% if comment.user == Current.user %>
+          <%= link_to "Edit", edit_comment_path(comment) %> |
+          <%= button_to "Delete", comment, method: :delete %>
+        <% end %>
+      </span>
+    </div>
   </summary>
   <%= comment.body %>
 </details>

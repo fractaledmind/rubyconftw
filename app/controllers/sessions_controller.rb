@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
       ip_address: request.ip
     )
 
-
     if @session.save
       Current.session = @session
       cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }

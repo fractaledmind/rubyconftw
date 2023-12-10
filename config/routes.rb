@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :user, only: %i[ edit update destroy ]
     resources :sessions, only: %i[ destroy ]
     resources :posts, only: %i[ new create edit update destroy ] do
-      resources :comments, only: %i[ new create edit update destroy ]
+      resources :comments, only: %i[ new create edit update destroy ], shallow: true
     end
   end
 

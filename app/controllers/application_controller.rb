@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ActionView::RecordIdentifier
+
   NotAuthorized = Class.new(ActionController::RoutingError)
 
   rescue_from ApplicationController::NotAuthorized, with: :user_not_authorized

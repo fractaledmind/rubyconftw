@@ -18,7 +18,7 @@ user_ids_and_created_ats = User.pluck(:id, :created_at)
   user_id, created_at = user_ids_and_created_ats.sample
   results = Post.insert({
     user_id: user_id,
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.sentence[0..-2],
     description: Faker::Lorem.paragraphs.join("\n"),
     created_at: Faker::Time.between(from: created_at, to: DateTime.now)
   }, returning: [:id, :created_at])

@@ -36,3 +36,5 @@ en:
       user:
         create: "Create account"
         update: "Update profile"
+      comment:
+        create: "Post comment"
