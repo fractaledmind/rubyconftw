@@ -1,18 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  # ----- unauthenticated actions -----
+  with_options only: %i[ index show ] do
+    before_action :authenticate
+  end
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc).limit(50)
   end
 
   # GET /posts/1
   def show
+    @post = Post.find(params[:id])
   end
+
+  # ----- authenticated actions -----
+  with_options only: %i[ new edit create update destroy ] do
+    before_action :authenticate!
+  end
+  before_action :set_and_authorize_post, only: %i[ edit update destroy ]
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Current.user.posts.new
   end
 
   # GET /posts/1/edit
@@ -21,7 +31,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = Current.user.posts.new(post_params)
 
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
@@ -47,12 +57,13 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
+    def set_and_authorize_post
       @post = Post.find(params[:id])
+      raise ApplicationController::NotAuthorized, "not allowed to #{action_name} this post" unless @post.user == Current.user
     end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:user_id, :title, :description, :published_at, :comments_count)
+      params.require(:post).permit(:title, :description)
     end
 end

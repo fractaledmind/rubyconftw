@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: %i[ new create ]
+  resources :users, only: %i[ show new create ]
+  get '/sign_in', to: 'sessions#new', as: :sign_in
+  get '/sign_up', to: 'users#new', as: :sign_up
+  resources :posts, only: %i[ index show ]
 
   constraints(AuthenticatedConstraint.new) do
-    resource :user, only: %i[ show edit new create update destroy ]
-    resources :sessions, only: [:index, :new, :destroy]
-
-    resources :posts do
-      resources :comments, shallow: true
+    resource :user, only: %i[ edit update destroy ]
+    resources :sessions, only: %i[ destroy ]
+    resources :posts, only: %i[ new create edit update destroy ] do
+      resources :comments, only: %i[ new create edit update destroy ]
     end
-
-    root to: "users#show", as: :user_root
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -18,5 +19,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root to: "sessions#new"
+  root to: "posts#index"
 end

@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<h1><%= render @post %></h1>
 
-<%= render @post %>
+<p>
+  <%= @post.description %>
+</p>
 
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
+<% if @post.user == Current.user %>
+  <div>
+    <%= link_to "Edit this post", edit_post_path(@post) %> |
+    <%= button_to "Delete this post", @post, method: :delete %>
+  </div>
+<% end %>
 
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<hr />
+
+<div class="space-y-4">
+  <%= render @post.comments.order(created_at: :desc) %>
 </div>

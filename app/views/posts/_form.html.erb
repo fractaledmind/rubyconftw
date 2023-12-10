@@ -1,20 +1,15 @@
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    <div class="not-prose border-double border-4 border-red-500 text-red-600 p-4">
+      <p class="mb-4 font-bold"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</p>
 
-      <ul>
+      <ul class="list-disc pl-8">
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
 
   <div>
     <%= form.label :title, style: "display: block" %>
@@ -24,16 +19,6 @@
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :published_at, style: "display: block" %>
-    <%= form.datetime_field :published_at %>
-  </div>
-
-  <div>
-    <%= form.label :comments_count, style: "display: block" %>
-    <%= form.number_field :comments_count %>
   </div>
 
   <div>

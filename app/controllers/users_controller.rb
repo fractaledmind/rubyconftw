@@ -1,24 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  # ----- unauthenticated actions -----
+  with_options only: %i[ show new create ] do
+    before_action :authenticate
+  end
 
   # GET /users/1
-  # GET /user
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
-  # GET /user/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
-  # GET /user/edit
-  def edit
-  end
-
   # POST /users
-  # POST /user
   def create
     @user = User.new(user_params)
 
@@ -29,7 +25,16 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
+  # ----- authenticated actions -----
+  with_options only: %i[ edit update destroy ] do
+    before_action :authenticate!
+    before_action :set_current_user
+  end
+
+  # GET /user/edit
+  def edit
+  end
+
   # PATCH/PUT /user
   def update
     if @user.update(user_params)
@@ -39,7 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   # DELETE /user
   def destroy
     @user.destroy!
@@ -48,8 +52,8 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = params.key?(:id) ? User.find(params[:id]) : Current.user
+    def set_current_user
+      @user = Current.user
     end
 
     # Only allow a list of trusted parameters through.

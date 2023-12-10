@@ -1,10 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate!, only: %i[new create]
-  before_action :set_session, only: %i[ destroy ]
-
-  # GET /sessions
-  def index
-    @sessions = Current.user.sessions.order(created_at: :desc)
+  # ----- unauthenticated actions -----
+  with_options only: %i[ new create ] do
+    before_action :authenticate
   end
 
   # GET /sessions/new
@@ -20,6 +17,7 @@ class SessionsController < ApplicationController
       ip_address: request.ip
     )
 
+
     if @session.save
       Current.session = @session
       cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
@@ -29,17 +27,19 @@ class SessionsController < ApplicationController
     end
   end
 
+  # ----- authenticated actions -----
+  with_options only: %i[ destroy ] do
+    before_action :authenticate!
+  end
+
   # DELETE /sessions/1
   def destroy
+    @session = Current.user.sessions.find(params[:id])
     @session.destroy!
     redirect_to sessions_url, notice: "That session has been logged out.", status: :see_other
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_session
-      @session = Current.user.sessions.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def session_params

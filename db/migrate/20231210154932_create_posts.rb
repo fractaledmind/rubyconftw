@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.belongs_to :user, null: false, foreign_key: true
       t.string :title, null: false
       t.text :description
-      t.datetime :published_at
       t.integer :comments_count, default: 0
 
       t.timestamps

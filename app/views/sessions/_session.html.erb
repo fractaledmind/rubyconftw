@@ -1,17 +1,17 @@
-<div id="<%= dom_id session %>" class="flex justify-between items-center border-b">
+<li id="<%= dom_id session %>" class="flex justify-between items-center border-b">
   <div>
-    <p>
+    <div>
       <span><%= session.browser.platform.id.to_s.capitalize %></span>
       <span><%= session.browser.id.to_s.capitalize %></span>
       <span><%= session.browser.full_version %></span>
       <% if session == Current.session %>
         <span class="border-green-500 bg-green-100 text-green-600 rounded-full px-2 py-1">active</span>
       <% end %>
-    </p>
-    <p>
+    </div>
+    <div class="text-sm">
       <%= time_tag session.created_at, session.created_at.to_formatted_s(:long) %>
-    </p>
+    </div>
   </div>
 
   <%= button_to "Revoke this session", session, method: :delete %>
-</div>
+</li>

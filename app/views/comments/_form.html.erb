@@ -1,25 +1,15 @@
-<%= form_with(model: comment) do |form| %>
+<%= form_with(model: [@post, comment]) do |form| %>
   <% if comment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+    <div class="not-prose border-double border-4 border-red-500 text-red-600 p-4">
+      <p class="mb-4 font-bold"><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</p>
 
-      <ul>
+      <ul class="list-disc pl-8">
         <% comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :post_id, style: "display: block" %>
-    <%= form.text_field :post_id %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
 
   <div>
     <%= form.label :body, style: "display: block" %>

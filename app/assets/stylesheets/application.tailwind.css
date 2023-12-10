@@ -8,10 +8,19 @@
     @apply h-full font-mono;
   }
   main {
-    @apply prose lg:prose-lg min-h-full mx-auto border-x border-dashed p-8;
+    @apply prose lg:prose-lg mx-auto max-w-4xl border p-8 shadow-md;
   }
-  form {
+  a[href] {
+    @apply font-medium text-[--tw-prose-links] underline;
+  }
+  form:not(.button_to) {
     @apply flex flex-col justify-start gap-4;
+  }
+  form.button_to {
+    @apply inline-block;
+  }
+  form.button_to [type="submit"] {
+    @apply font-medium text-[--tw-prose-links] underline;
   }
   label:has(input, select, textarea) {
     @apply flex flex-col gap-1;
@@ -19,11 +28,11 @@
   fieldset label:has(input[type="checkbox"], input[type="radio"]) {
     @apply flex flex-row items-center gap-2;
   }
-  [type="submit"],
-  [type="button"],
-  [type="file"]::-webkit-file-upload-button,
-  [type="file"]::file-selector-button,
-  button {
+  form:not(.button_to) [type="submit"],
+  form:not(.button_to) [type="button"],
+  form:not(.button_to) [type="file"]::-webkit-file-upload-button,
+  form:not(.button_to) [type="file"]::file-selector-button,
+  form:not(.button_to) button {
     @apply cursor-pointer bg-gray-200 px-2 py-1;
   }
   [type="submit"]:hover,

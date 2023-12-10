@@ -2,7 +2,7 @@
 
 <%= form_with(model: @session) do |form| %>
   <% if @session.errors.any? %>
-    <div class="not-prose border border-double border-red-500 text-red-600 border-4 p-4">
+    <div class="not-prose border-double border-4 border-red-500 text-red-600 p-4">
       <p class="mb-4 font-bold"><%= pluralize(@session.errors.count, "error") %> prohibited you from signing in:</p>
 
       <ul class="list-disc pl-8">
