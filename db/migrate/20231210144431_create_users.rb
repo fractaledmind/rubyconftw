@@ -1,9 +1,9 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :users do |t|
-      t.string :screen_name
+      t.string :screen_name, null: false
       t.datetime :last_seen_at
-      t.integer :posts_count
+      t.integer :posts_count, default: 0
 
       t.timestamps
     end
