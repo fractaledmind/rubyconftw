@@ -1,17 +1,17 @@
-<div id="<%= dom_id session %>">
-  <p>
-    <strong>User:</strong>
-    <%= session.user_id %>
-  </p>
+<div id="<%= dom_id session %>" class="flex justify-between items-center border-b">
+  <div>
+    <p>
+      <span><%= session.browser.platform.id.to_s.capitalize %></span>
+      <span><%= session.browser.id.to_s.capitalize %></span>
+      <span><%= session.browser.full_version %></span>
+      <% if session == Current.session %>
+        <span class="border-green-500 bg-green-100 text-green-600 rounded-full px-2 py-1">active</span>
+      <% end %>
+    </p>
+    <p>
+      <%= time_tag session.created_at, session.created_at.to_formatted_s(:long) %>
+    </p>
+  </div>
 
-  <p>
-    <strong>User agent:</strong>
-    <%= session.user_agent %>
-  </p>
-
-  <p>
-    <strong>Ip address:</strong>
-    <%= session.ip_address %>
-  </p>
-
+  <%= button_to "Revoke this session", session, method: :delete %>
 </div>

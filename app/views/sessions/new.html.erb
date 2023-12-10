@@ -1,9 +1,26 @@
-<h1>New session</h1>
+<h1>Sign in</h1>
 
-<%= render "form", session: @session %>
+<%= form_with(model: @session) do |form| %>
+  <% if @session.errors.any? %>
+    <div class="not-prose border border-double border-red-500 text-red-600 border-4 p-4">
+      <p class="mb-4 font-bold"><%= pluralize(@session.errors.count, "error") %> prohibited you from signing in:</p>
 
-<br>
+      <ul class="list-disc pl-8">
+        <% @session.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<div>
-  <%= link_to "Back to sessions", sessions_path %>
-</div>
+  <div>
+    <%= form.fields_for :user do |fields| %>
+      <%= fields.label :screen_name, style: "display: block" %>
+      <%= fields.text_field :screen_name, value: form.object.user&.screen_name %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

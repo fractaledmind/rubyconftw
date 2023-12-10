@@ -29,3 +29,9 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      session:
+        create: "Log in"
+      user:
+        update: "Update profile"

@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if alert %>
+      <div role="status" class="absolute top-4 right-4 border-double border-red-500 border-4 text-red-700 p-4 mb-4"><%= alert %></div>
+    <% elsif notice %>
+      <div role="status" class="absolute top-4 right-4 border-double border-green-500 border-4 text-green-700 p-4 mb-4"><%= notice %></div>
+    <% end %>
+
     <main><%= yield %></main>
   </body>
 </html>

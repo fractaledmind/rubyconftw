@@ -1,13 +1,10 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: %i[ show edit update destroy ]
+  skip_before_action :authenticate!, only: %i[new create]
+  before_action :set_session, only: %i[ destroy ]
 
   # GET /sessions
   def index
-    @sessions = Session.all
-  end
-
-  # GET /sessions/1
-  def show
+    @sessions = Current.user.sessions.order(created_at: :desc)
   end
 
   # GET /sessions/new
@@ -15,44 +12,37 @@ class SessionsController < ApplicationController
     @session = Session.new
   end
 
-  # GET /sessions/1/edit
-  def edit
-  end
-
   # POST /sessions
   def create
-    @session = Session.new(session_params)
+    @session = Session.new(
+      user: User.find_or_initialize_by(screen_name: session_params.dig(:user, :screen_name)),
+      user_agent: request.user_agent,
+      ip_address: request.ip
+    )
 
     if @session.save
-      redirect_to @session, notice: "Session was successfully created."
+      Current.session = @session
+      cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
+      redirect_to root_url, notice: "You have been signed in.", status: :see_other
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /sessions/1
-  def update
-    if @session.update(session_params)
-      redirect_to @session, notice: "Session was successfully updated.", status: :see_other
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /sessions/1
   def destroy
     @session.destroy!
-    redirect_to sessions_url, notice: "Session was successfully destroyed.", status: :see_other
+    redirect_to sessions_url, notice: "That session has been logged out.", status: :see_other
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_session
-      @session = Session.find(params[:id])
+      @session = Current.user.sessions.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def session_params
-      params.require(:session).permit(:user_id, :user_agent, :ip_address)
+      params.require(:session).permit(user: :screen_name)
     end
 end

@@ -1,12 +1,7 @@
 <div id="<%= dom_id user %>">
   <p>
-    <strong>Screen name:</strong>
-    <%= user.screen_name %>
-  </p>
-
-  <p>
     <strong>Last seen at:</strong>
-    <%= user.last_seen_at %>
+    <%= user.last_seen_at || user.updated_at %>
   </p>
 
   <p>
