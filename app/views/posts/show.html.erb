@@ -6,9 +6,11 @@
 
 <hr />
 
-<%= render "comments/form", comment: @post.comments.new %>
+<% if user_signed_in? %>
+  <%= render "comments/form", comment: @post.comments.new %>
 
-<br />
+  <br />
+<% end %>
 
 <div class="space-y-4">
   <%= render @post.comments.order(created_at: :desc) %>
