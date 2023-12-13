@@ -1,0 +1,850 @@
+fractaled@Stephens-MBP rubyconftw % hey -c 1 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.5195 secs
+  Slowest:	1.3608 secs
+  Fastest:	0.0349 secs
+  Average:	0.1384 secs
+  Requests/sec:	7.2247
+
+
+Response time histogram:
+  0.035 [1]	|■
+  0.167 [56]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.300 [14]	|■■■■■■■■■■
+  0.433 [1]	|■
+  0.565 [0]	|
+  0.698 [2]	|■
+  0.830 [0]	|
+  0.963 [0]	|
+  1.096 [1]	|■
+  1.228 [0]	|
+  1.361 [1]	|■
+
+
+Latency distribution:
+  10% in 0.0393 secs
+  25% in 0.0425 secs
+  50% in 0.0655 secs
+  75% in 0.1719 secs
+  90% in 0.2413 secs
+  95% in 0.6715 secs
+  0% in 0.0000 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0036 secs, 0.0349 secs, 1.3608 secs
+  DNS-lookup:	0.0018 secs, 0.0000 secs, 0.1350 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	0.1343 secs, 0.0348 secs, 1.0861 secs
+  resp read:	0.0005 secs, 0.0000 secs, 0.0117 secs
+
+Status code distribution:
+  [200]	53 responses
+  [201]	20 responses
+  [204]	3 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 2 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.0338 secs
+  Slowest:	0.9901 secs
+  Fastest:	0.0343 secs
+  Average:	0.1554 secs
+  Requests/sec:	12.8565
+
+
+Response time histogram:
+  0.034 [1]	|■
+  0.130 [68]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.225 [32]	|■■■■■■■■■■■■■■■■■■■
+  0.321 [18]	|■■■■■■■■■■■
+  0.417 [5]	|■■■
+  0.512 [0]	|
+  0.608 [2]	|■
+  0.703 [0]	|
+  0.799 [0]	|
+  0.895 [0]	|
+  0.990 [3]	|■■
+
+
+Latency distribution:
+  10% in 0.0418 secs
+  25% in 0.0491 secs
+  50% in 0.0915 secs
+  75% in 0.2119 secs
+  90% in 0.2977 secs
+  95% in 0.3729 secs
+  99% in 0.9901 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0007 secs, 0.0343 secs, 0.9901 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0017 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	0.1540 secs, 0.0341 secs, 0.9840 secs
+  resp read:	0.0005 secs, 0.0000 secs, 0.0120 secs
+
+Status code distribution:
+  [200]	95 responses
+  [201]	28 responses
+  [204]	6 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 4 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.1281 secs
+  Slowest:	0.7964 secs
+  Fastest:	0.0409 secs
+  Average:	0.2211 secs
+  Requests/sec:	18.0685
+
+
+Response time histogram:
+  0.041 [1]	|■
+  0.116 [57]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.192 [37]	|■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.268 [30]	|■■■■■■■■■■■■■■■■■■■■■
+  0.343 [21]	|■■■■■■■■■■■■■■■
+  0.419 [13]	|■■■■■■■■■
+  0.494 [10]	|■■■■■■■
+  0.570 [9]	|■■■■■■
+  0.645 [4]	|■■■
+  0.721 [0]	|
+  0.796 [1]	|■
+
+
+Latency distribution:
+  10% in 0.0574 secs
+  25% in 0.0861 secs
+  50% in 0.1872 secs
+  75% in 0.3131 secs
+  90% in 0.4506 secs
+  95% in 0.5471 secs
+  99% in 0.7964 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0027 secs, 0.0409 secs, 0.7964 secs
+  DNS-lookup:	0.0016 secs, 0.0000 secs, 0.0721 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	0.2182 secs, 0.0408 secs, 0.7963 secs
+  resp read:	0.0002 secs, 0.0000 secs, 0.0063 secs
+
+Status code distribution:
+  [200]	137 responses
+  [201]	37 responses
+  [204]	9 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 8 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.6886 secs
+  Slowest:	2.7301 secs
+  Fastest:	0.0378 secs
+  Average:	0.4535 secs
+  Requests/sec:	17.0274
+
+
+Response time histogram:
+  0.038 [1]	|
+  0.307 [107]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.576 [39]	|■■■■■■■■■■■■■■■
+  0.846 [12]	|■■■■
+  1.115 [5]	|■■
+  1.384 [4]	|■
+  1.653 [3]	|■
+  1.922 [2]	|■
+  2.192 [2]	|■
+  2.461 [4]	|■
+  2.730 [3]	|■
+
+
+Latency distribution:
+  10% in 0.0844 secs
+  25% in 0.1584 secs
+  50% in 0.2633 secs
+  75% in 0.4959 secs
+  90% in 1.1542 secs
+  95% in 1.9808 secs
+  99% in 2.7301 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0116 secs, 0.0378 secs, 2.7301 secs
+  DNS-lookup:	0.0001 secs, 0.0000 secs, 0.0027 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	0.4402 secs, 0.0377 secs, 2.5980 secs
+  resp read:	0.0016 secs, 0.0000 secs, 0.2279 secs
+
+Status code distribution:
+  [200]	141 responses
+  [201]	36 responses
+  [204]	5 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 16 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.9707 secs
+  Slowest:	7.3594 secs
+  Fastest:	0.0447 secs
+  Average:	0.7768 secs
+  Requests/sec:	19.6889
+
+
+Response time histogram:
+  0.045 [1]	|
+  0.776 [181]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.508 [3]	|■
+  2.239 [6]	|■
+  2.971 [5]	|■
+  3.702 [5]	|■
+  4.434 [7]	|■■
+  5.165 [2]	|
+  5.896 [1]	|
+  6.628 [1]	|
+  7.359 [4]	|■
+
+
+Latency distribution:
+  10% in 0.0780 secs
+  25% in 0.1369 secs
+  50% in 0.2386 secs
+  75% in 0.5128 secs
+  90% in 2.9052 secs
+  95% in 4.3178 secs
+  99% in 7.0275 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0180 secs, 0.0447 secs, 7.3594 secs
+  DNS-lookup:	0.0130 secs, 0.0000 secs, 0.1753 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	0.7585 secs, 0.0446 secs, 7.3591 secs
+  resp read:	0.0003 secs, 0.0000 secs, 0.0052 secs
+
+Status code distribution:
+  [200]	147 responses
+  [201]	53 responses
+  [204]	16 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 32 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	15.1590 secs
+  Slowest:	14.2655 secs
+  Fastest:	0.0418 secs
+  Average:	2.6476 secs
+  Requests/sec:	11.0825
+
+
+Response time histogram:
+  0.042 [1]	|
+  1.464 [116]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.887 [5]	|■■
+  4.309 [14]	|■■■■■
+  5.731 [5]	|■■
+  7.154 [0]	|
+  8.576 [2]	|■
+  9.998 [6]	|■■
+  11.421 [1]	|
+  12.843 [4]	|■
+  14.266 [14]	|■■■■■
+
+
+Latency distribution:
+  10% in 0.0959 secs
+  25% in 0.1867 secs
+  50% in 0.3853 secs
+  75% in 3.2928 secs
+  90% in 12.4277 secs
+  95% in 13.6805 secs
+  99% in 14.2655 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0201 secs, 0.0418 secs, 14.2655 secs
+  DNS-lookup:	0.0123 secs, 0.0000 secs, 0.0655 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	2.6161 secs, 0.0417 secs, 14.1216 secs
+  resp read:	0.0019 secs, 0.0000 secs, 0.2316 secs
+
+Status code distribution:
+  [200]	127 responses
+  [201]	34 responses
+  [204]	6 responses
+  [500]	1 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 64 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	15.4393 secs
+  Slowest:	14.5571 secs
+  Fastest:	0.0482 secs
+  Average:	3.4681 secs
+  Requests/sec:	15.5448
+
+
+Response time histogram:
+  0.048 [1]	|
+  1.499 [165]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.950 [0]	|
+  4.401 [5]	|■
+  5.852 [1]	|
+  7.303 [9]	|■■
+  8.754 [2]	|
+  10.204 [8]	|■■
+  11.655 [16]	|■■■■
+  13.106 [16]	|■■■■
+  14.557 [17]	|■■■■
+
+
+Latency distribution:
+  10% in 0.1011 secs
+  25% in 0.1932 secs
+  50% in 0.3757 secs
+  75% in 7.1204 secs
+  90% in 12.6140 secs
+  95% in 13.2401 secs
+  99% in 14.5501 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0191 secs, 0.0482 secs, 14.5571 secs
+  DNS-lookup:	0.0011 secs, 0.0000 secs, 0.0064 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0008 secs
+  resp wait:	3.4483 secs, 0.0477 secs, 14.4906 secs
+  resp read:	0.0006 secs, 0.0000 secs, 0.0078 secs
+
+Status code distribution:
+  [200]	187 responses
+  [201]	43 responses
+  [204]	10 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 128 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	17.0589 secs
+  Slowest:	16.3752 secs
+  Fastest:	0.0402 secs
+  Average:	5.4579 secs
+  Requests/sec:	18.9931
+
+
+Response time histogram:
+  0.040 [1]	|
+  1.674 [166]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  3.307 [9]	|■■
+  4.941 [16]	|■■■■
+  6.574 [17]	|■■■■
+  8.208 [9]	|■■
+  9.841 [3]	|■
+  11.475 [2]	|
+  13.108 [32]	|■■■■■■■■
+  14.742 [37]	|■■■■■■■■■
+  16.375 [32]	|■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.1143 secs
+  25% in 0.2336 secs
+  50% in 0.6213 secs
+  75% in 12.7726 secs
+  90% in 14.7822 secs
+  95% in 15.7118 secs
+  99% in 16.3494 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0598 secs, 0.0402 secs, 16.3752 secs
+  DNS-lookup:	0.0011 secs, 0.0000 secs, 0.0052 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	5.3952 secs, 0.0401 secs, 16.2350 secs
+  resp read:	0.0007 secs, 0.0000 secs, 0.0303 secs
+
+Status code distribution:
+  [200]	242 responses
+  [201]	70 responses
+  [204]	12 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 256 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	20.5007 secs
+  Slowest:	19.9952 secs
+  Fastest:	0.0418 secs
+  Average:	8.3722 secs
+  Requests/sec:	21.7554
+
+
+Response time histogram:
+  0.042 [1]	|
+  2.037 [169]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  4.032 [5]	|■
+  6.028 [5]	|■
+  8.023 [20]	|■■■■■
+  10.019 [6]	|■
+  12.014 [27]	|■■■■■■
+  14.009 [39]	|■■■■■■■■■
+  16.005 [57]	|■■■■■■■■■■■■■
+  18.000 [45]	|■■■■■■■■■■■
+  19.995 [40]	|■■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.1228 secs
+  25% in 0.2610 secs
+  50% in 10.3667 secs
+  75% in 15.3887 secs
+  90% in 17.9838 secs
+  95% in 19.2531 secs
+  99% in 19.8244 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.1094 secs, 0.0418 secs, 19.9952 secs
+  DNS-lookup:	0.0228 secs, 0.0000 secs, 0.0521 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	8.2616 secs, 0.0417 secs, 19.6987 secs
+  resp read:	0.0008 secs, 0.0000 secs, 0.0074 secs
+
+Status code distribution:
+  [200]	302 responses
+  [201]	82 responses
+  [204]	30 responses
+
+Error distribution:
+  [32]	Post "https://ymnr8.hatchboxapp.com/benchmarking/read_heavy": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+fractaled@Stephens-MBP rubyconftw % hey -c 256 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	23.0085 secs
+  Slowest:	19.9241 secs
+  Fastest:	0.0441 secs
+  Average:	8.6359 secs
+  Requests/sec:	18.7756
+
+
+Response time histogram:
+  0.044 [1]	|
+  2.032 [164]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  4.020 [4]	|■
+  6.008 [2]	|
+  7.996 [4]	|■
+  9.984 [5]	|■
+  11.972 [27]	|■■■■■■■
+  13.960 [39]	|■■■■■■■■■■
+  15.948 [50]	|■■■■■■■■■■■■
+  17.936 [42]	|■■■■■■■■■■
+  19.924 [49]	|■■■■■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.1085 secs
+  25% in 0.2999 secs
+  50% in 11.1075 secs
+  75% in 15.7449 secs
+  90% in 18.5626 secs
+  95% in 18.9930 secs
+  99% in 19.8626 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.1060 secs, 0.0441 secs, 19.9241 secs
+  DNS-lookup:	0.0417 secs, 0.0000 secs, 0.0835 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0004 secs
+  resp wait:	8.5285 secs, 0.0440 secs, 19.6541 secs
+  resp read:	0.0012 secs, 0.0000 secs, 0.0321 secs
+
+Status code distribution:
+  [200]	293 responses
+  [201]	84 responses
+  [204]	10 responses
+
+Error distribution:
+  [45]	Post "https://ymnr8.hatchboxapp.com/benchmarking/read_heavy": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+
+fractaled@Stephens-MBP rubyconftw % hey -c 128 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	16.9890 secs
+  Slowest:	16.2844 secs
+  Fastest:	0.0448 secs
+  Average:	5.8827 secs
+  Requests/sec:	17.6585
+
+
+Response time histogram:
+  0.045 [1]	|
+  1.669 [161]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  3.293 [2]	|
+  4.917 [3]	|■
+  6.541 [3]	|■
+  8.165 [6]	|■
+  9.789 [5]	|■
+  11.413 [26]	|■■■■■■
+  13.037 [28]	|■■■■■■■
+  14.660 [29]	|■■■■■■■
+  16.284 [36]	|■■■■■■■■■
+
+
+Latency distribution:
+  10% in 0.1093 secs
+  25% in 0.2481 secs
+  50% in 0.6143 secs
+  75% in 12.4684 secs
+  90% in 15.3169 secs
+  95% in 15.7901 secs
+  99% in 16.1880 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.1083 secs, 0.0448 secs, 16.2844 secs
+  DNS-lookup:	0.0653 secs, 0.0000 secs, 0.1588 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	5.7726 secs, 0.0447 secs, 16.0842 secs
+  resp read:	0.0015 secs, 0.0000 secs, 0.2566 secs
+
+Status code distribution:
+  [200]	246 responses
+  [201]	43 responses
+  [204]	11 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 64 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	14.1392 secs
+  Slowest:	13.3046 secs
+  Fastest:	0.0501 secs
+  Average:	3.2117 secs
+  Requests/sec:	17.1863
+
+
+Response time histogram:
+  0.050 [1]	|
+  1.376 [158]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.701 [17]	|■■■■
+  4.026 [2]	|■
+  5.352 [4]	|■
+  6.677 [1]	|
+  8.003 [3]	|■
+  9.328 [11]	|■■■
+  10.654 [9]	|■■
+  11.979 [11]	|■■■
+  13.305 [26]	|■■■■■■■
+
+
+Latency distribution:
+  10% in 0.1095 secs
+  25% in 0.2093 secs
+  50% in 0.4199 secs
+  75% in 6.7280 secs
+  90% in 12.0166 secs
+  95% in 12.8548 secs
+  99% in 13.2400 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0187 secs, 0.0501 secs, 13.3046 secs
+  DNS-lookup:	0.0007 secs, 0.0000 secs, 0.0040 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	3.1916 secs, 0.0499 secs, 13.3043 secs
+  resp read:	0.0014 secs, 0.0000 secs, 0.2304 secs
+
+Status code distribution:
+  [200]	178 responses
+  [201]	51 responses
+  [204]	14 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 32 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	12.3843 secs
+  Slowest:	11.2266 secs
+  Fastest:	0.0423 secs
+  Average:	1.8129 secs
+  Requests/sec:	15.9879
+
+
+Response time histogram:
+  0.042 [1]	|
+  1.161 [156]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  2.279 [0]	|
+  3.398 [7]	|■■
+  4.516 [2]	|■
+  5.634 [2]	|■
+  6.753 [6]	|■■
+  7.871 [2]	|■
+  8.990 [8]	|■■
+  10.108 [1]	|
+  11.227 [13]	|■■■
+
+
+Latency distribution:
+  10% in 0.0883 secs
+  25% in 0.1830 secs
+  50% in 0.3173 secs
+  75% in 0.5923 secs
+  90% in 8.4510 secs
+  95% in 10.7985 secs
+  99% in 11.2266 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0161 secs, 0.0423 secs, 11.2266 secs
+  DNS-lookup:	0.0074 secs, 0.0000 secs, 0.0464 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0006 secs
+  resp wait:	1.7962 secs, 0.0421 secs, 11.1287 secs
+  resp read:	0.0005 secs, 0.0000 secs, 0.0063 secs
+
+Status code distribution:
+  [200]	149 responses
+  [201]	40 responses
+  [204]	9 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 16 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	11.1555 secs
+  Slowest:	7.4706 secs
+  Fastest:	0.0539 secs
+  Average:	0.9485 secs
+  Requests/sec:	16.0459
+
+
+Response time histogram:
+  0.054 [1]	|
+  0.796 [134]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.537 [8]	|■■
+  2.279 [14]	|■■■■
+  3.021 [7]	|■■
+  3.762 [3]	|■
+  4.504 [3]	|■
+  5.246 [3]	|■
+  5.987 [2]	|■
+  6.729 [1]	|
+  7.471 [3]	|■
+
+
+Latency distribution:
+  10% in 0.0907 secs
+  25% in 0.1796 secs
+  50% in 0.3531 secs
+  75% in 0.8188 secs
+  90% in 2.6793 secs
+  95% in 4.8363 secs
+  99% in 7.4706 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0041 secs, 0.0539 secs, 7.4706 secs
+  DNS-lookup:	0.0001 secs, 0.0000 secs, 0.0017 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0006 secs
+  resp wait:	0.9437 secs, 0.0536 secs, 7.4705 secs
+  resp read:	0.0005 secs, 0.0000 secs, 0.0272 secs
+
+Status code distribution:
+  [200]	122 responses
+  [201]	46 responses
+  [204]	11 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 8 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.4316 secs
+  Slowest:	3.4074 secs
+  Fastest:	0.0405 secs
+  Average:	0.4083 secs
+  Requests/sec:	19.1726
+
+
+Response time histogram:
+  0.041 [1]	|
+  0.377 [134]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.714 [39]	|■■■■■■■■■■■■
+  1.051 [10]	|■■■
+  1.387 [4]	|■
+  1.724 [7]	|■■
+  2.061 [1]	|
+  2.397 [2]	|■
+  2.734 [0]	|
+  3.071 [1]	|
+  3.407 [1]	|
+
+
+Latency distribution:
+  10% in 0.0816 secs
+  25% in 0.1545 secs
+  50% in 0.2601 secs
+  75% in 0.4584 secs
+  90% in 0.9384 secs
+  95% in 1.5228 secs
+  99% in 2.8903 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0043 secs, 0.0405 secs, 3.4074 secs
+  DNS-lookup:	0.0025 secs, 0.0000 secs, 0.0629 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0001 secs
+  resp wait:	0.4035 secs, 0.0404 secs, 3.2972 secs
+  resp read:	0.0003 secs, 0.0000 secs, 0.0135 secs
+
+Status code distribution:
+  [200]	147 responses
+  [201]	42 responses
+  [204]	11 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 4 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.0461 secs
+  Slowest:	1.7841 secs
+  Fastest:	0.0372 secs
+  Average:	0.2332 secs
+  Requests/sec:	17.1211
+
+
+Response time histogram:
+  0.037 [1]	|
+  0.212 [98]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.387 [45]	|■■■■■■■■■■■■■■■■■■
+  0.561 [21]	|■■■■■■■■■
+  0.736 [4]	|■■
+  0.911 [1]	|
+  1.085 [1]	|
+  1.260 [0]	|
+  1.435 [0]	|
+  1.609 [0]	|
+  1.784 [1]	|
+
+
+Latency distribution:
+  10% in 0.0586 secs
+  25% in 0.1039 secs
+  50% in 0.1900 secs
+  75% in 0.2930 secs
+  90% in 0.4557 secs
+  95% in 0.5296 secs
+  99% in 1.7841 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0011 secs, 0.0372 secs, 1.7841 secs
+  DNS-lookup:	0.0001 secs, 0.0000 secs, 0.0025 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	0.2315 secs, 0.0369 secs, 1.7839 secs
+  resp read:	0.0005 secs, 0.0000 secs, 0.0118 secs
+
+Status code distribution:
+  [200]	135 responses
+  [201]	26 responses
+  [204]	11 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 2 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.0512 secs
+  Slowest:	0.5414 secs
+  Fastest:	0.0327 secs
+  Average:	0.1161 secs
+  Requests/sec:	17.2119
+
+
+Response time histogram:
+  0.033 [1]	|
+  0.084 [91]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.134 [17]	|■■■■■■■
+  0.185 [29]	|■■■■■■■■■■■■■
+  0.236 [22]	|■■■■■■■■■■
+  0.287 [5]	|■■
+  0.338 [4]	|■■
+  0.389 [1]	|
+  0.440 [0]	|
+  0.490 [0]	|
+  0.541 [3]	|■
+
+
+Latency distribution:
+  10% in 0.0400 secs
+  25% in 0.0478 secs
+  50% in 0.0730 secs
+  75% in 0.1722 secs
+  90% in 0.2111 secs
+  95% in 0.2910 secs
+  99% in 0.5414 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0009 secs, 0.0327 secs, 0.5414 secs
+  DNS-lookup:	0.0005 secs, 0.0000 secs, 0.0443 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0002 secs
+  resp wait:	0.1148 secs, 0.0326 secs, 0.5410 secs
+  resp read:	0.0003 secs, 0.0000 secs, 0.0064 secs
+
+Status code distribution:
+  [200]	135 responses
+  [201]	29 responses
+  [204]	9 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw % hey -c 1 -z 10s -m POST https://ymnr8.hatchboxapp.com/benchmarking/read_heavy
+
+Summary:
+  Total:	10.1355 secs
+  Slowest:	0.2123 secs
+  Fastest:	0.0340 secs
+  Average:	0.0751 secs
+  Requests/sec:	13.3195
+
+
+Response time histogram:
+  0.034 [1]	|■
+  0.052 [72]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.070 [24]	|■■■■■■■■■■■■■
+  0.088 [2]	|■
+  0.105 [1]	|■
+  0.123 [1]	|■
+  0.141 [5]	|■■■
+  0.159 [14]	|■■■■■■■■
+  0.177 [11]	|■■■■■■
+  0.194 [3]	|■■
+  0.212 [1]	|■
+
+
+Latency distribution:
+  10% in 0.0376 secs
+  25% in 0.0400 secs
+  50% in 0.0459 secs
+  75% in 0.1290 secs
+  90% in 0.1607 secs
+  95% in 0.1737 secs
+  99% in 0.2123 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0003 secs, 0.0340 secs, 0.2123 secs
+  DNS-lookup:	0.0000 secs, 0.0000 secs, 0.0032 secs
+  req write:	0.0000 secs, 0.0000 secs, 0.0005 secs
+  resp wait:	0.0742 secs, 0.0338 secs, 0.2120 secs
+  resp read:	0.0004 secs, 0.0000 secs, 0.0073 secs
+
+Status code distribution:
+  [200]	107 responses
+  [201]	21 responses
+  [204]	7 responses
+
+
+
+fractaled@Stephens-MBP rubyconftw %

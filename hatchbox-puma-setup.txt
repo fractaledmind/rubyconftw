@@ -1,0 +1,6 @@
+Puma starting in single mode...
+* Puma version: 6.4.0 (ruby 3.2.1-p31) ("The Eagle of Durango")
+*  Min threads: 5
+*  Max threads: 5
+*  Environment: production
+*          PID: 34620

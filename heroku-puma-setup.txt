@@ -1,0 +1,17 @@
+=> Booting Puma
+=> Rails 7.1.2 application starting in production 
+=> Run `bin/rails server --help` for more startup options
+[2] Puma starting in cluster mode...
+[2] * Puma version: 6.4.0 (ruby 3.2.1-p31) ("The Eagle of Durango")
+[2] *  Min threads: 5
+[2] *  Max threads: 5
+[2] *  Environment: production
+[2] *   Master PID: 2
+[2] *      Workers: 4
+[2] *     Restarts: (✔) hot (✔) phased
+[2] * Listening on http://0.0.0.0:31571
+[2] Use Ctrl-C to stop
+[2] - Worker 0 (PID: 6) booted in 0.02s, phase: 0
+[2] - Worker 1 (PID: 18) booted in 0.01s, phase: 0
+[2] - Worker 2 (PID: 29) booted in 0.01s, phase: 0
+[2] - Worker 3 (PID: 37) booted in 0.0s, phase: 0

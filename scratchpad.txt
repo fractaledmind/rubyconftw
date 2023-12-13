@@ -1,0 +1,55 @@
+# scaffold the Rails app
+rails new pg --database=sqlite3 --asset-pipeline=propshaft --javascript=esbuild --css=tailwind --skip-jbuilder --skip-action-mailbox --skip-spring
+
+bundle add activerecord-enhancedsqlite3-adapter
+
+# add the litestack gem and install it
+bundle add litestack
+bin/rails generate litestack:install
+
+sed -i .bak 's/web: env RUBY_DEBUG_OPEN=true bin\/rails server/web: env RUBY_DEBUG_OPEN=true bin\/rails server --pid tmp\/pids\/rails.pid/' Procfile.dev && rm Procfile.dev.bak
+echo 'board: liteboard -d db/development/data.sqlite3' >> Procfile.dev
+
+
+
+bin/rails generate scaffold Request uid:string:uniq ip:string method:string url:string parameters:json --skip-test-framework --skip-helper
+
+sed -i .bak 's/@request = Request.new(request_params)/@request = Request.new(\n      uid: request.uuid,\n      ip: request.remote_ip,\n      method: request.method,\n      url: request.original_url,\n      parameters: request.request_parameters,\n    )/' app/controllers/requests_controller.rb && rm app/controllers/requests_controller.rb.bak
+
+sed -i .bak 's/class RequestsController < ApplicationController/class RequestsController < ApplicationController\n  skip_before_action :verify_authenticity_token/' app/controllers/requests_controller.rb && rm app/controllers/requests_controller.rb.bak
+
+
+sed -i .bak 's/config.force_ssl = true/config.force_ssl = false/' config/environments/production.rb && rm config/environments/production.rb.bak
+
+
+
+
+
+# scaffold the Subscription model
+bin/rails generate scaffold Subscription email:string:uniq --skip-test-framework --skip-helper
+sed -i .bak 's/t.string :email/t.string :email, null: false/' db/migrate/*_create_subscriptions.rb
+rm db/migrate/*_create_subscriptions.rb.bak
+
+sed -i .bak 's/end/  validates :email, presence: true, uniqueness: true\nend/' app/models/subscription.rb
+rm app/models/subscription.rb.bak
+
+sed -i .bak 's/# root "posts#index"/root "subscriptions#index"/' config/routes.rb
+rm config/routes.rb.bak
+
+<h1>New subscription</h1>
+
+RAILS_LOG_LEVEL=warn RUBY_YJIT_ENABLE=1 SECRET_KEY_BASE=asdf RAILS_ENV=production WEB_CONCURRENCY=10 RAILS_MAX_THREADS=3 bin/rails db:migrate
+
+
+
+
+
+
+
+
+
+
+web: env RUBY_DEBUG_OPEN=true bin/rails server --pid tmp/pids/rails.pid
+js: yarn build --watch
+css: yarn build:css --watch
+board: liteboard -d db/development/data.sqlite3
