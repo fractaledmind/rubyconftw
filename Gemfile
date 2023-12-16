@@ -73,3 +73,5 @@ gem "faker", "~> 3.2"
 gem "pg", "~> 1.5"
 
 gem "activerecord-enhancedsqlite3-adapter", "~> 0.4.0"
+
+gem "sqlite-vss", "~> 0.1.2"

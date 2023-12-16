@@ -216,6 +216,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sqlite-vss (0.1.2-arm64-darwin)
+    sqlite-vss (0.1.2-x86_64-linux)
     sqlite3 (1.6.9-aarch64-linux)
     sqlite3 (1.6.9-arm64-darwin)
     sqlite3 (1.6.9-x86_64-linux)
@@ -264,6 +266,7 @@ DEPENDENCIES
   rails (~> 7.1.2)
   redis (>= 4.0.1)
   selenium-webdriver
+  sqlite-vss (~> 0.1.2)
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
