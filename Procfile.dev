@@ -1,3 +1,5 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 js: yarn build --watch
 css: yarn build:css --watch
+minio: docker run -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
+litestream: bin/rails litestream:replicate
