@@ -10,6 +10,8 @@ default: &default
   timeout: 5000
   pragmas:
     temp_store: :memory
+  extensions:
+    - sqlite_vss
 
 development:
   <<: *default
