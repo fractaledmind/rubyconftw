@@ -40,6 +40,25 @@ class BenchmarkingController < ApplicationController
     )
   end
 
+  # GET /benchmarking/long_running
+  def long_running
+    ActiveRecord::Base.connection_pool.with_connection do |conn|
+      # Since SQLite doesn't have a sleep function, we'll use a recursive CTE
+      # which takes approximately 1 second to execute.
+      conn.raw_connection.execute <<~SQL
+        WITH RECURSIVE r(i) AS (
+          VALUES(0)
+          UNION ALL
+          SELECT i FROM r
+          LIMIT 10000000
+        )
+        SELECT i FROM r WHERE i = 1;
+      SQL
+    end
+
+    head :ok
+  end
+
   private
 
     def set_user_update_last_seen_at

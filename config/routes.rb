@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "benchmarking/read_heavy"
   get "benchmarking/write_heavy"
   get "benchmarking/balanced"
+  get "benchmarking/long_running"
 
   # Defines the root path route ("/")
   root to: "posts#index"
