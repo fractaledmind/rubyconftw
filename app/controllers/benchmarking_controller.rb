@@ -88,7 +88,7 @@ class BenchmarkingController < ApplicationController
         head :created
       when :comment_create
         head :created
-      when :comment_destroy
+      when :comment_destroy, :post_destroy
         head :no_content
       when :post_show
         render "posts/show", status: :ok
