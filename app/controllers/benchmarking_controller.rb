@@ -1,8 +1,7 @@
 class BenchmarkingController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_user_update_last_seen_at
 
-  # POST /benchmarking/read_heavy
+  # GET /benchmarking/read_heavy
   def read_heavy
     act_and_respond(
       post_create:      0.10,
@@ -15,7 +14,7 @@ class BenchmarkingController < ApplicationController
     )
   end
 
-  # POST /benchmarking/write_heavy
+  # GET /benchmarking/write_heavy
   def write_heavy
     act_and_respond(
       post_create:      0.25,
@@ -28,7 +27,7 @@ class BenchmarkingController < ApplicationController
     )
   end
 
-  # POST /benchmarking/balanced
+  # GET /benchmarking/balanced
   def balanced
     act_and_respond(
       post_create:      0.17,
