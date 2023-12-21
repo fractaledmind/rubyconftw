@@ -1,8 +1,7 @@
 class BenchmarkingController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_user_update_last_seen_at
 
-  # POST /benchmarking/read_heavy
+  # GET /benchmarking/read_heavy
   def read_heavy
     act_and_respond(
       post_create:      0.10,
@@ -15,7 +14,7 @@ class BenchmarkingController < ApplicationController
     )
   end
 
-  # POST /benchmarking/write_heavy
+  # GET /benchmarking/write_heavy
   def write_heavy
     act_and_respond(
       post_create:      0.25,
@@ -28,7 +27,7 @@ class BenchmarkingController < ApplicationController
     )
   end
 
-  # POST /benchmarking/balanced
+  # GET /benchmarking/balanced
   def balanced
     act_and_respond(
       post_create:      0.17,
@@ -39,6 +38,25 @@ class BenchmarkingController < ApplicationController
       posts_index:      0.17,
       comment_show:     0.16,
     )
+  end
+
+  # GET /benchmarking/long_running
+  def long_running
+    ActiveRecord::Base.connection_pool.with_connection do |conn|
+      # Since SQLite doesn't have a sleep function, we'll use a recursive CTE
+      # which takes approximately 1 second to execute.
+      conn.raw_connection.execute <<~SQL
+        WITH RECURSIVE r(i) AS (
+          VALUES(0)
+          UNION ALL
+          SELECT i FROM r
+          LIMIT 10000000
+        )
+        SELECT i FROM r WHERE i = 1;
+      SQL
+    end
+
+    head :ok
   end
 
   private
@@ -89,7 +107,7 @@ class BenchmarkingController < ApplicationController
         head :created
       when :comment_create
         head :created
-      when :comment_destroy
+      when :comment_destroy, :post_destroy
         head :no_content
       when :post_show
         render "posts/show", status: :ok
