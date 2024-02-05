@@ -69,5 +69,3 @@ end
 gem "browser", "~> 5.3"
 
 gem "faker", "~> 3.2"
-
-gem "pg", "~> 1.5"
