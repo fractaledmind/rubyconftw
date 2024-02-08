@@ -69,3 +69,5 @@ end
 gem "browser", "~> 5.3"
 
 gem "faker", "~> 3.2"
+
+gem "activerecord-enhancedsqlite3-adapter", "~> 0.5.0"
